@@ -197,6 +197,8 @@ a {
     flex-wrap: wrap;
 }
 
+
+
 //
 
 
@@ -214,6 +216,7 @@ body {
     display: flex;
     padding-top: 25px ;
     padding-bottom: 25px ;
+    position: relative;
     .btn--transparent {
         margin-right: 16px;
     }
@@ -238,9 +241,34 @@ body {
 .nav {
     display: flex;
     align-items: center;
+    @media screen and (max-width: 900px) {
+        a.btn {
+            display: none;
+        }
+   }
     &__item {
         cursor: pointer;
         margin-right: 32px;
+
+        @media screen and (max-width: 900px) {
+                margin-right: 0;
+                padding: 6px;
+                padding-right: 40px;
+                border-bottom: 1px solid $gray;
+                box-shadow: $bs;
+                width: 100%;
+                background-color: #fff;
+
+                &:hover {
+                    transition: 0.3s;
+                    background-color: $gray;
+                }
+        }
+        @media screen and (max-width: 500px) {
+            padding: 4px;
+            padding-right: 15px;
+       }
+
         &--withIcon {
             display: flex;
             align-items: center;
@@ -248,9 +276,18 @@ body {
 
     }
     @media screen and (max-width: 900px) {
-       display: none;
+       visibility: hidden;
+       opacity: 0;
+       flex-direction: column;
+       position: absolute;
+       z-index: 1000;
+       top: 80px;
+       right: -16px;
       }
 }
+
+
+
 
 //Preview
 
@@ -531,6 +568,8 @@ body {
 //Houses 
 
 .houses {
+    opacity: 0;
+    visibility: hidden;
     background-color: $light-gray;
     &__container {
         width: 100%;
@@ -989,4 +1028,15 @@ body {
             margin-right: 22px;
         }
     }
+}
+
+.hide{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s;
 }

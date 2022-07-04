@@ -214,6 +214,7 @@ body {
   display: flex;
   padding-top: 25px;
   padding-bottom: 25px;
+  position: relative;
 }
 
 .header__inner .btn--transparent {
@@ -253,9 +254,40 @@ body {
           align-items: center;
 }
 
+@media screen and (max-width: 900px) {
+  .nav a.btn {
+    display: none;
+  }
+}
+
 .nav__item {
   cursor: pointer;
   margin-right: 32px;
+}
+
+@media screen and (max-width: 900px) {
+  .nav__item {
+    margin-right: 0;
+    padding: 6px;
+    padding-right: 40px;
+    border-bottom: 1px solid #E7E8E3;
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    background-color: #fff;
+  }
+  .nav__item:hover {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    background-color: #E7E8E3;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav__item {
+    padding: 4px;
+    padding-right: 15px;
+  }
 }
 
 .nav__item--withIcon {
@@ -269,7 +301,16 @@ body {
 
 @media screen and (max-width: 900px) {
   .nav {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    z-index: 1000;
+    top: 80px;
+    right: -16px;
   }
 }
 
@@ -676,6 +717,8 @@ body {
 }
 
 .houses {
+  opacity: 0;
+  visibility: hidden;
   background-color: #F5F5F2;
 }
 
@@ -1225,5 +1268,17 @@ body {
 
 .footer .social__item {
   margin-right: 22px;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 /*# sourceMappingURL=style.css.map */
